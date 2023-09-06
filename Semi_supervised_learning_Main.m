@@ -3,20 +3,20 @@
 net = densenet201;
 %%
 % Create imageDatastore for labeled and unlabeled data
-rootFolder = fullfile('D:\ICASSP\four datasets\ICM to O\trainset');
+rootFolder = fullfile('D:\ICM\trainset');
 categories  = {'real1','attack1'};
 imdsLabeled = imageDatastore(fullfile(rootFolder, categories), 'IncludeSubfolders',true, ...
  'LabelSource','foldernames');
 tbl = countEachLabel(imdsLabeled);
 %%
 % Create imageDatastore unlabeled data
-rootFolder = fullfile('D:\ICASSP\four datasets\ICM to O\unlabled data');
+rootFolder = fullfile('D:\ICM\unlabled data');
 categories  = {'50','80'};
 imdsUnlabeled  = imageDatastore(fullfile(rootFolder, categories), 'IncludeSubfolders',true, ...
  'LabelSource','foldernames');
 %%
 % Create imageDatastore validation data
-rootFolder = fullfile('D:\ICASSP\four datasets\ICM to O\testseet');
+rootFolder = fullfile('D:\ICM\testseet');
 categories  = {'real1','attack1'};
 imdsValidation  = imageDatastore(fullfile(rootFolder, categories), 'IncludeSubfolders',true, ...
  'LabelSource','foldernames');
@@ -97,7 +97,7 @@ imdsValidation.ReadFcn = @(filename)readAndPreprocessImage(filename);
  EER = Info.eer*100
  threashold1 = Info.eerThreshold;
 % Evaluate the final model on a test set (you should have a separate test dataset)
-rootFolder = fullfile('D:\ICASSP\four datasets\Oulu testing set\testset');
+rootFolder = fullfile('D:\Oulu testing set\testset');
 categories  = {'real1','attack1'};
 imdsTest  = imageDatastore(fullfile(rootFolder, categories), 'IncludeSubfolders',true, ...
  'LabelSource','foldernames');
