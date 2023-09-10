@@ -232,8 +232,8 @@ numFeatures = 1920;
 numClasses = 2;
 layers = [ ...
     sequenceInputLayer(numFeatures)
-         lstmLayer(numHiddenUnits,'OutputMode','sequence','RecurrentWeightsInitializer','he')
-     fullyConnectedLayer(numClasses,'WeightsInitializer','he')
+         lstmLayer(numHiddenUnits,'OutputMode','sequence')
+     fullyConnectedLayer(numClasses)
     softmaxLayer
     classificationLayer];
 
